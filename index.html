@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>西征工具集 - Shadow Era Toolkit</title>
+    <!-- 为了简便，我们继续保留 Tailwind CDN，你也可以选择在项目中安装 Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // 配合 data-theme 使用
+        theme: {
+          extend: {
+            colors: {
+              parchment: {
+                50: 'var(--c-parchment-50)',
+                100: 'var(--c-parchment-100)',
+                200: 'var(--c-parchment-200)',
+                300: 'var(--c-parchment-300)',
+                400: 'var(--c-parchment-400)',
+                500: 'var(--c-parchment-500)',
+                600: 'var(--c-parchment-600)',
+                700: 'var(--c-parchment-700)',
+                800: 'var(--c-parchment-800)',
+                900: 'var(--c-parchment-900)',
+              },
+              dark: {
+                800: 'var(--c-dark-800)',
+                900: 'var(--c-dark-900)',
+              },
+              stone: {
+                100: 'var(--c-stone-100)',
+                200: 'var(--c-stone-200)',
+                300: 'var(--c-stone-300)',
+                400: 'var(--c-stone-400)',
+                500: 'var(--c-stone-500)',
+                600: 'var(--c-stone-600)',
+                700: 'var(--c-stone-700)',
+                800: 'var(--c-stone-800)',
+                900: 'var(--c-stone-900)',
+              }
+            },
+            fontFamily: {
+              serif: ['"Noto Serif SC"', 'Georgia', 'serif'],
+              sans: ['"Microsoft YaHei"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Default Dark Theme (Original) */
+        --c-dark-900: #0c0a09;
+        --c-dark-800: #1c1917;
+        --c-dark-border: #292524;
+        
+        --c-stone-100: #f5f5f4;
+        --c-stone-200: #e7e5e4;
+        --c-stone-300: #d6d3d1;
+        --c-stone-400: #a8a29e;
+        --c-stone-500: #78716c;
+        --c-stone-600: #57534e;
+        --c-stone-800: #292524;
+        --c-stone-900: #1c1917;
+
+        --c-parchment-50: #f9f7f1;
+        --c-parchment-100: #f2efe3;
+        --c-parchment-200: #e6dfc6;
+        --c-parchment-300: #d5c8a0;
+        --c-parchment-400: #c2ab78;
+        --c-parchment-500: #b09055;
+        --c-parchment-600: #967443;
+        --c-parchment-700: #785a37;
+        --c-parchment-800: #634a31;
+        --c-parchment-900: #523d2b;
+      }
+
+      [data-theme="light"] {
+        /* Clean Light Theme */
+        --c-dark-900: #f8fafc; /* Page BG */
+        --c-dark-800: #ffffff; /* Panel BG */
+        --c-dark-border: #e2e8f0;
+        
+        --c-stone-100: #1e293b; /* Text Inversion */
+        --c-stone-200: #334155; /* Main Text */
+        --c-stone-300: #475569;
+        --c-stone-400: #64748b;
+        --c-stone-500: #94a3b8;
+        --c-stone-600: #cbd5e1;
+        --c-stone-800: #f1f5f9; /* Inputs BG */
+        --c-stone-900: #ffffff;
+
+        /* Remap Parchment to Blue/Indigo for "Clean" look */
+        --c-parchment-50: #ffffff;
+        --c-parchment-100: #f0f9ff;
+        --c-parchment-200: #bae6fd;
+        --c-parchment-300: #7dd3fc;
+        --c-parchment-400: #38bdf8;
+        --c-parchment-500: #0ea5e9;
+        --c-parchment-600: #0284c7; /* Primary Accent */
+        --c-parchment-700: #0369a1;
+        --c-parchment-800: #075985;
+        --c-parchment-900: #0c4a6e;
+      }
+
+      [data-theme="parchment"] {
+        /* Retro RPG Theme */
+        --c-dark-900: #e6dfc6; /* Page BG (Darker Parchment) */
+        --c-dark-800: #f2efe3; /* Panel BG (Lighter Parchment) */
+        --c-dark-border: #d5c8a0;
+        
+        --c-stone-100: #292524;
+        --c-stone-200: #422006; /* Text Brown */
+        --c-stone-300: #573c24;
+        --c-stone-400: #856848;
+        --c-stone-500: #a69076;
+        --c-stone-600: #cbbba6;
+        --c-stone-800: #eaddcf; /* Input BG */
+        --c-stone-900: #f7f5f0;
+
+        /* Keep Parchment colors warm but contrasty */
+        --c-parchment-50: #fffefc;
+        --c-parchment-100: #f9f7f1;
+        --c-parchment-200: #e6dfc6;
+        --c-parchment-300: #d5c8a0;
+        --c-parchment-400: #a16207; /* Darker Gold for visibility */
+        --c-parchment-500: #b45309;
+        --c-parchment-600: #92400e;
+        --c-parchment-700: #78350f;
+        --c-parchment-800: #451a03;
+        --c-parchment-900: #2a1205;
+      }
+
+      body {
+        transition: background-color 0.3s, color 0.3s;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/shadow-era-toolkit/assets/index-C1wTjPPX.js"></script>
+</head>
+  <body class="bg-dark-900 text-stone-200 font-sans antialiased overflow-hidden">
+    <div id="root"></div>
+  </body>
+</html>
